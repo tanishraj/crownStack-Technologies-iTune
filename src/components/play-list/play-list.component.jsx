@@ -19,7 +19,9 @@ class PlayList extends Component {
   }
 
   componentDidMount() {
-    this.setState({ showLoader: false });
+    setTimeout(() => {
+      this.setState({ showLoader: false });
+    }, 3000);
   }
 
   render() {
