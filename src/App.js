@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Switch, Route } from 'react-router-dom';
+import HomePage from './pages/home-page/home-page.component';
+import songDetails from './components/song-details/song-details.component';
+import CategoryTitle from "./components/category-title/category-title.component";
+import withSplashScreen from './components/splash-screen/withSplashScreen.component';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+
+      <CategoryTitle title="Songs" />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/songDetails" component={songDetails} />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+export default withSplashScreen(App);
